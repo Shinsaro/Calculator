@@ -29,6 +29,7 @@ body {
   text-align: right;
   font-size: 50px;
   padding-right: 25px;
+  resize: none;
 }
 .sectionNumbers {
   display: flex;

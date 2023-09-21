@@ -2,56 +2,88 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useRef } from "react";
 import "./styles/calculator.css";
 import * as Icon from "react-bootstrap-icons";
 import "./App.css";
+import Erase from "./methods/Reset";
+import Number from "./methods/Number";
+import Decimal from "./methods/Decimal";
+import Operation from "./methods/Operations";
+import ResultOperation from "./methods/Result";
+import SquareRoot from "./methods/SquareRoot";
 
 function App() {
+  const symbolOperation = useRef(0);
   return (
     <Container className="calculator">
       <Row className="container-form-control">
-        <input
-          type="text"
+        <textarea
+          id="form-control"
           className="form-control"
           placeholder="0"
-          aria-label="Introduce a number"
-          aria-describedby="basic-addon1"
+        ></textarea>
+      </Row>
+      <Row className="sectionNumbers">
+        <Erase />
+        <SquareRoot />
+        <Operation
+          symbol={
+            <Icon.Percent
+              style={{ fontSize: "30px" }}
+              id="operation"
+              key={"%"}
+            />
+          }
+        />
+        <Operation
+          symbol={
+            <Icon.Slash
+              style={{ fontSize: "45px", rotate: "-20deg" }}
+              id="operation"
+              key={"/"}
+            />
+          }
         />
       </Row>
       <Row className="sectionNumbers">
-        <Col className="number">C</Col>
-        <Col className="number">AC</Col>
-        <Col className="number">%</Col>
-        <Col className="number">/</Col>
+        <Number digit={1} />
+        <Number digit={2} />
+        <Number digit={3} />
+        <Operation
+          symbol={
+            <Icon.Asterisk
+              style={{ fontSize: "15px" }}
+              id="operation"
+              key={"*"}
+            />
+          }
+        />
       </Row>
       <Row className="sectionNumbers">
-        <Col className="number">1</Col>
-        <Col className="number">2</Col>
-        <Col className="number">3</Col>
-        <Col className="number">
-          <Icon.Asterisk style={{ fontSize: "30px" }} />
-        </Col>
+        <Number digit={4} />
+        <Number digit={5} />
+        <Number digit={6} />
+        <Operation
+          symbol={
+            <Icon.Dash style={{ fontSize: "30px" }} id="operation" key={"-"} />
+          }
+        />
       </Row>
       <Row className="sectionNumbers">
-        <Col className="number">4</Col>
-        <Col className="number">5</Col>
-        <Col className="number">6</Col>
-        <Col className="number">
-          <Icon.Dash style={{ fontSize: "30px" }} />
-        </Col>
+        <Number digit={7} />
+        <Number digit={8} />
+        <Number digit={9} />
+        <Operation
+          symbol={
+            <Icon.Plus style={{ fontSize: "30px" }} id="operation" key={"+"} />
+          }
+        />
       </Row>
       <Row className="sectionNumbers">
-        <Col className="number">7</Col>
-        <Col className="number">8</Col>
-        <Col className="number">9</Col>
-        <Col className="number">
-          <Icon.Plus style={{ fontSize: "30px" }} />
-        </Col>
-      </Row>
-      <Row className="sectionNumbers">
-        <Col className="number0">0</Col>
-        <Col className="number">,</Col>
-        <Col className="number">=</Col>
+        <Number digit={0} />
+        <Decimal decimalSeparator={"."}>,</Decimal>
+        <ResultOperation />
       </Row>
     </Container>
   );
