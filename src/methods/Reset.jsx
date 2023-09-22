@@ -6,12 +6,7 @@ export default function Erase() {
   }
 
   return (
-    <Col
-      className="number"
-      style={{ fontSize: "40px" }}
-      value="C"
-      onClick={Reset}
-    >
+    <Col className="number" value="C" onClick={Reset}>
       C
     </Col>
   );

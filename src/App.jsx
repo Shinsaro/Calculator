@@ -1,8 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { useRef } from "react";
 import "./styles/calculator.css";
 import * as Icon from "react-bootstrap-icons";
 import "./App.css";
@@ -14,7 +12,6 @@ import ResultOperation from "./methods/Result";
 import SquareRoot from "./methods/SquareRoot";
 
 function App() {
-  const symbolOperation = useRef(0);
   return (
     <Container className="calculator">
       <Row className="container-form-control">
@@ -33,6 +30,7 @@ function App() {
               style={{ fontSize: "30px" }}
               id="operation"
               key={"%"}
+              className="operation"
             />
           }
         />
@@ -42,6 +40,7 @@ function App() {
               style={{ fontSize: "45px", rotate: "-20deg" }}
               id="operation"
               key={"/"}
+              className="operation"
             />
           }
         />
@@ -56,6 +55,7 @@ function App() {
               style={{ fontSize: "15px" }}
               id="operation"
               key={"*"}
+              className="multiply"
             />
           }
         />
@@ -66,7 +66,12 @@ function App() {
         <Number digit={6} />
         <Operation
           symbol={
-            <Icon.Dash style={{ fontSize: "30px" }} id="operation" key={"-"} />
+            <Icon.Dash
+              style={{ fontSize: "30px" }}
+              id="operation"
+              key={"-"}
+              className="operation"
+            />
           }
         />
       </Row>
@@ -76,13 +81,20 @@ function App() {
         <Number digit={9} />
         <Operation
           symbol={
-            <Icon.Plus style={{ fontSize: "30px" }} id="operation" key={"+"} />
+            <Icon.Plus
+              style={{ fontSize: "30px" }}
+              id="operation"
+              key={"+"}
+              className="operation"
+            />
           }
         />
       </Row>
       <Row className="sectionNumbers">
         <Number digit={0} />
-        <Decimal decimalSeparator={"."}>,</Decimal>
+        <Decimal decimalSeparator={"."} className="operation">
+          ,
+        </Decimal>
         <ResultOperation />
       </Row>
     </Container>

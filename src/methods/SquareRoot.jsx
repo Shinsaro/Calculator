@@ -8,8 +8,8 @@ function SquareRoot() {
     );
   };
   return (
-    <Col className="number" style={{ fontSize: "30px" }} onClick={handleClick}>
-      <TablerIcons.IconSquareRoot size={35} />
+    <Col className="number" onClick={handleClick}>
+      <TablerIcons.IconSquareRoot className="tabler-icons" size={35} />
     </Col>
   );
 }
