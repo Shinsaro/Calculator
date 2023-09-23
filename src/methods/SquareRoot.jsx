@@ -5,7 +5,7 @@ function SquareRoot() {
   const handleClick = () => {
     document.getElementById("form-control").innerHTML = Math.sqrt(
       document.getElementById("form-control").innerHTML
-    );
+    ).toFixed(2);
   };
   return (
     <Col className="number" onClick={handleClick}>

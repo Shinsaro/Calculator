@@ -2,13 +2,18 @@ import Col from "react-bootstrap/Col";
 
 function Decimal({ decimalSeparator }) {
   const handleClick = () => {
-    var inputValue =
+    const inputValue =
       document.getElementsByClassName("form-control")[0].innerHTML;
-    var input = document.getElementsByClassName("form-control")[0];
-    if (inputValue.length >= 1 && inputValue.indexOf(".") == -1) {
-      input.innerHTML =
-        inputValue + document.getElementById("decimalSeparator").innerHTML;
-    }
+    const input = document.getElementsByClassName("form-control")[0];
+    const breakpoint = /\+{1}|-{1}|\*{1}|\/{1}|\%{1}/;
+    const numbers = inputValue.split(breakpoint);
+
+    numbers.forEach((number) => {
+      if (inputValue.length >= 1 && number.indexOf(".") == -1) {
+        input.innerHTML =
+          inputValue + document.getElementById("decimalSeparator").innerHTML;
+      }
+    });
   };
   return (
     <Col className="number" onClick={handleClick}>
