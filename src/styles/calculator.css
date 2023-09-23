@@ -79,7 +79,6 @@ body {
 /* Phone CSS*/
 
 @media only screen and (max-width: 400px) {
-  /* For mobile phones: */
   .calculator {
     background-color: black;
     color: white;
@@ -89,6 +88,10 @@ body {
     border-color: darkred;
     border-style: solid;
     border-radius: 30px;
+  }
+  .form-control {
+    font-size: 30px;
+    height: 40px;
   }
   .number {
     height: 45px;
